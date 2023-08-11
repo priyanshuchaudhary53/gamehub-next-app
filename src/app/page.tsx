@@ -1,4 +1,3 @@
-import GridItem from "@/components/Game/GridItem";
 import type { Game } from "@/app/types";
 import Games from "./Games";
 
@@ -17,15 +16,6 @@ export default async function Home() {
   const data = await getData();
 
   const games = data["data"]["results"];
-
-  // const gamesList = games.map((game: Game) => (
-  //   <GridItem
-  //     key={game.id}
-  //     title={game.name}
-  //     image={game.background_image}
-  //     platforms={game.platforms}
-  //   />
-  // ));
 
   return <Games intialGames={games} />;
 }
