@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 import GridItem from "@/components/Game/GridItem";
 import InfiniteScroll from "react-infinite-scroll-component";
-import type { Game } from "@/app/types";
+import type { Game } from "@/types";
 
 export default function Games({ intialGames }: { intialGames: Game[] }) {
   const fetching = useRef(false);

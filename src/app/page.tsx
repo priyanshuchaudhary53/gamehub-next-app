@@ -1,4 +1,4 @@
-import type { Game } from "@/app/types";
+import type { Game } from "@/types";
 import Games from "../components/Games";
 
 const getData = async (): Promise<{ data: { results: Game[] } }> => {
