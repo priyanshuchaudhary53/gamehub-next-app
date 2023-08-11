@@ -1,5 +1,5 @@
 import type { Game } from "@/app/types";
-import Games from "./Games";
+import Games from "../components/Games";
 
 const getData = async (): Promise<{ data: { results: Game[] } }> => {
   const res = await fetch(`https://${process.env.VERCEL_URL}/api/games`);
