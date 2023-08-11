@@ -3,7 +3,7 @@ import type { Game } from "@/app/types";
 import Games from "./Games";
 
 const getData = async (): Promise<{ data: { results: Game[] } }> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_HOSTNAME}/api/games`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_VERCEL_URL}/api/games`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch games");
