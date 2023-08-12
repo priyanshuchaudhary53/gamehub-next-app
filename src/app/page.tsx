@@ -1,8 +1,10 @@
 import type { Game } from "@/types";
 import Games from "../components/Games";
 
-const getData = async (): Promise<{ data: { results: Game[] } }> => {
-  const res = await fetch(`https://${process.env.VERCEL_URL}/api/games`);
+const getData = async (): Promise<{ results: Game[] }> => {
+  const res = await fetch(
+    `https://api.rawg.io/api/games?key=e9f3f7bdec2f4679aeb3116d6b735626&page=1&page_size=32`
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch games");
@@ -15,7 +17,7 @@ const getData = async (): Promise<{ data: { results: Game[] } }> => {
 export default async function Home() {
   const data = await getData();
 
-  const games = data["data"]["results"];
+  const games = data["results"];
 
   return <Games intialGames={games} />;
 }
