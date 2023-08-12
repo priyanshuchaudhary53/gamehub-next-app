@@ -18,7 +18,7 @@ export default function Games({ intialGames }: { intialGames: Game[] }) {
         fetching.current = true;
 
         const res = await fetch(
-          `https://${process.env.VERCEL_URL}/api/games?page=${page}`
+          `https://${process.env.DOMAIN}/api/games?page=${page}`
         );
         const data = await res.json();
 
