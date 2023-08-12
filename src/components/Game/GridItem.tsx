@@ -1,16 +1,15 @@
+import { Game } from "@/types";
 import Image from "next/image";
+import Link from "next/link";
 
 import { FaWindows, FaPlaystation, FaXbox } from "react-icons/fa";
 
 const GridItem = ({
-  title,
-  image,
+  name: title,
+  background_image: image,
   platforms,
-}: {
-  title: string;
-  image: string;
-  platforms: [];
-}) => {
+  slug,
+}: Game) => {
   const plat = { pc: false, ps: false, xbox: false };
 
   for (let index = 0; index < platforms.length; index++) {
@@ -50,7 +49,9 @@ const GridItem = ({
           {plat.ps && <FaPlaystation />}
           {plat.xbox && <FaXbox />}
         </div>
-        <h3 className="mt-2 text-xl font-bold tracking-tight">{title}</h3>
+        <h3 className="mt-2 text-xl font-bold tracking-tight">
+          <Link href={`/games/${slug}`}>{title}</Link>
+        </h3>
       </div>
     </div>
   );

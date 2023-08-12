@@ -23,7 +23,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex bg-primary">
           <Sidebar />
-          <div className="min-h-[calc(100vh-5rem)] mt-20 w-full">
+          <div className="min-h-[calc(100vh-5rem)] mt-20 w-full text-white p-4 md:px-12">
             {children}
           </div>
         </main>

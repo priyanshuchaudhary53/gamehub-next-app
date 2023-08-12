@@ -39,15 +39,17 @@ export default function Games({ intialGames }: { intialGames: Game[] }) {
 
   const gamesList = games.map((game: Game) => (
     <GridItem
+      id={game.id}
+      slug={game.slug}
       key={game.id}
-      title={game.name}
-      image={game.background_image}
+      name={game.name}
+      background_image={game.background_image}
       platforms={game.platforms}
     />
   ));
 
   return (
-    <div className="text-white p-4 md:px-12">
+    <>
       <h1 className="text-3xl md:text-left md:text-4xl lg:text-5xl lg:mt-8 font-bold text-center tracking-tight">
         All Games
       </h1>
@@ -62,6 +64,6 @@ export default function Games({ intialGames }: { intialGames: Game[] }) {
       >
         {gamesList}
       </InfiniteScroll>
-    </div>
+    </>
   );
 }

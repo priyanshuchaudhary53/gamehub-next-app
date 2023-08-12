@@ -48,7 +48,12 @@ const Menu = ({ expanded }: { expanded: boolean }) => {
     <div className="">
       <ul className="flex flex-col gap-6 pt-4">
         {MenuItems.map((item) => (
-          <MenuItem key={item.id} title={item.title} expanded={expanded}>
+          <MenuItem
+            key={item.id}
+            title={item.title}
+            expanded={expanded}
+            link={item.link}
+          >
             {item.icon}
           </MenuItem>
         ))}
