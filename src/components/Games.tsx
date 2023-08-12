@@ -18,7 +18,7 @@ export default function Games({ intialGames }: { intialGames: Game[] }) {
         fetching.current = true;
 
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_HOSTNAME}/api/games?page=${page}`
+          `https://gamehub-next.vercel.app/api/games?page=${page}`
         );
         const data = await res.json();
 
