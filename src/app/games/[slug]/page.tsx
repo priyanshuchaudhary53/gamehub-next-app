@@ -32,7 +32,7 @@ export default async function GameDetailPage({
             className="object-cover h-full w-full"
           />
         </div>
-        <div className="relative z-10 h-full w-full flex justify-center items-end p-4 bg-gradient-to-b from-transparent to-primary">
+        <div className="relative h-full w-full flex justify-center items-end p-4 bg-gradient-to-b from-transparent to-primary">
           <h1 className="text-5xl lg:text-6xl font-black text-center mb-4">
             {GameDetails.name}
           </h1>
