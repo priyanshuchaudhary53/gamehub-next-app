@@ -1,5 +1,6 @@
 import type { Game } from "@/types";
 import Games from "../components/Games";
+import PageHeading from "@/components/PageHeading";
 
 const getData = async (): Promise<{ results: Game[] }> => {
   const res = await fetch(
@@ -19,5 +20,10 @@ export default async function Home() {
 
   const games = data["results"];
 
-  return <Games intialGames={games} />;
+  return (
+    <>
+      <PageHeading>All Games</PageHeading>
+      <Games intialGames={games} />
+    </>
+  );
 }

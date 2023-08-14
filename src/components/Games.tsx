@@ -49,21 +49,14 @@ export default function Games({ intialGames }: { intialGames: Game[] }) {
   ));
 
   return (
-    <>
-      <h1 className="text-3xl md:text-left md:text-4xl lg:text-5xl lg:mt-8 font-bold text-center tracking-tight">
-        All Games
-      </h1>
-      <InfiniteScroll
-        hasMore={hasMore}
-        dataLength={games.length}
-        next={loadMore}
-        loader={
-          <div className="col-span-full my-4 text-center">loading...</div>
-        }
-        className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6"
-      >
-        {gamesList}
-      </InfiniteScroll>
-    </>
+    <InfiniteScroll
+      hasMore={hasMore}
+      dataLength={games.length}
+      next={loadMore}
+      loader={<div className="col-span-full my-4 text-center">loading...</div>}
+      className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-6"
+    >
+      {gamesList}
+    </InfiniteScroll>
   );
 }
