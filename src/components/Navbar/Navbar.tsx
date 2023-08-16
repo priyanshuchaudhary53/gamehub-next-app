@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import Link from "next/link";
 import MobileMenu from "../Menu/MobileMenu";
 import SearchBar from "../Menu/SearchBar";
 
@@ -25,7 +26,9 @@ const Navbar = () => {
   return (
     <>
       <header className="h-20 w-full z-10 bg-accent fixed top-0 p-4 flex justify-between items-center">
-        <div className="text-3xl font-black tracking-tight">GameHub</div>
+        <div className="text-3xl font-black tracking-tight">
+          <Link href="/">GameHub</Link>
+        </div>
         <div className="hidden md:block">
           <SearchBar />
         </div>

@@ -1,25 +1,45 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 
 import GridItem from "@/components/Game/GridItem";
 import InfiniteScroll from "react-infinite-scroll-component";
 import type { Game } from "@/types";
 
-export default function Games({ intialGames }: { intialGames: Game[] }) {
+export default function Games({
+  intialGames,
+  apiRoute,
+  params,
+}: {
+  intialGames: Game[];
+  apiRoute: "games" | "search";
+  params?: { searchTerm: string | undefined };
+}) {
   const fetching = useRef(false);
   const [games, setGames] = useState(intialGames);
   const [page, setPage] = useState(2);
   const [hasMore, setHasMore] = useState(true);
+
+  useEffect(() => {
+    setGames(intialGames);
+  }, [intialGames]);
+
+  let reqUrl: string;
+
+  if (apiRoute === "games") {
+    reqUrl = `${process.env.NEXT_PUBLIC_HOSTNAME}/api/games?page=${page}`;
+  }
+
+  if (apiRoute === "search") {
+    reqUrl = `${process.env.NEXT_PUBLIC_HOSTNAME}/api/games/search?q=${params?.searchTerm}&page=${page}`;
+  }
 
   const loadMore = async () => {
     if (!fetching.current) {
       try {
         fetching.current = true;
 
-        const res = await fetch(
-          `https://gamehub-next.vercel.app/api/games?page=${page}`
-        );
+        const res = await fetch(reqUrl);
         const data = await res.json();
 
         const { results }: { results: Game[] } = data["data"];

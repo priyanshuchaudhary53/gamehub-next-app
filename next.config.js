@@ -8,6 +8,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "media.rawg.io",
       },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+      },
     ],
   },
 };

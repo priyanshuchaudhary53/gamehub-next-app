@@ -23,7 +23,7 @@ export default async function Home() {
   return (
     <>
       <PageHeading>All Games</PageHeading>
-      <Games intialGames={games} />
+      <Games intialGames={games} apiRoute="games" />
     </>
   );
 }
