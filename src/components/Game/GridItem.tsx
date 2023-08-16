@@ -12,23 +12,25 @@ const GridItem = ({
 }: Game) => {
   const plat = { pc: false, ps: false, xbox: false };
 
-  for (let index = 0; index < platforms.length; index++) {
-    if (platforms[index]["platform"]["slug"] === "pc") {
-      plat.pc = true;
-    }
-    if (
-      platforms[index]["platform"]["slug"] === "playstation5" ||
-      platforms[index]["platform"]["slug"] === "playstation4" ||
-      platforms[index]["platform"]["slug"] === "playstation3"
-    ) {
-      plat.ps = true;
-    }
-    if (
-      platforms[index]["platform"]["slug"] === "xbox-series-x" ||
-      platforms[index]["platform"]["slug"] === "xbox360" ||
-      platforms[index]["platform"]["slug"] === "xbox-one"
-    ) {
-      plat.xbox = true;
+  if (platforms !== null) {
+    for (let index = 0; index < platforms.length; index++) {
+      if (platforms[index]["platform"]["slug"] === "pc") {
+        plat.pc = true;
+      }
+      if (
+        platforms[index]["platform"]["slug"] === "playstation5" ||
+        platforms[index]["platform"]["slug"] === "playstation4" ||
+        platforms[index]["platform"]["slug"] === "playstation3"
+      ) {
+        plat.ps = true;
+      }
+      if (
+        platforms[index]["platform"]["slug"] === "xbox-series-x" ||
+        platforms[index]["platform"]["slug"] === "xbox360" ||
+        platforms[index]["platform"]["slug"] === "xbox-one"
+      ) {
+        plat.xbox = true;
+      }
     }
   }
 
@@ -36,7 +38,11 @@ const GridItem = ({
     <div className="group rounded-xl overflow-hidden bg-gray-700 drop-shadow-md">
       <div className="w-full h-[200px] overflow-hidden">
         <Image
-          src={image}
+          src={
+            image
+              ? image
+              : "https://placehold.co/600x400.png?text=Image+not+available"
+          }
           alt={title}
           width={300}
           height={300}
