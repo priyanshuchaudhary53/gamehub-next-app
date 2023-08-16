@@ -27,11 +27,11 @@ export default function Games({
   let reqUrl: string;
 
   if (apiRoute === "games") {
-    reqUrl = `${process.env.NEXT_PUBLIC_HOSTNAME}/api/games?page=${page}`;
+    reqUrl = `https://gamehub-next.vercel.app/api/games?page=${page}`;
   }
 
   if (apiRoute === "search") {
-    reqUrl = `${process.env.NEXT_PUBLIC_HOSTNAME}/api/games/search?q=${params?.searchTerm}&page=${page}`;
+    reqUrl = `https://gamehub-next.vercel.app/api/games/search?q=${params?.searchTerm}&page=${page}`;
   }
 
   const loadMore = async () => {
